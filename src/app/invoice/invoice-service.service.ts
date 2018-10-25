@@ -17,6 +17,7 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
 
   invoiceObj: Invoice;
   isEditable: boolean;
+  selectedId: number;
 
   private hostURL = 'http://localhost:3000/invoice';
 
@@ -67,12 +68,14 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
       return this.invoiceObj;
   }
 
-  getInvoiceInfoFromServer(): Observable<any> {
-    return this.http.get(this.hostURL);
+  getInvoiceInfoFromServer(id: string): Observable<any> {
+    const idVal = parseInt(id);
+    const url = this.hostURL + '/' + idVal;
+    return this.http.get(url);
   }
 
-  getData() {
-    this.getInvoiceInfoFromServer().subscribe(
+  getData(id) {
+    this.getInvoiceInfoFromServer(id).subscribe(
       (res) => {
         this.invoiceObj = res[0];
         console.log(this.invoiceObj);
@@ -81,19 +84,19 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
   }
 
   resolve() {
-    this.getInvoiceInfoFromServer().subscribe(
-      (res) => {
-        this.invoiceObj = res[0];
-        console.log(this.invoiceObj);
-        return this.invoiceObj;
-      }
-    );
+    // this.getInvoiceInfoFromServer().subscribe(
+    //   (res) => {
+    //     this.invoiceObj = res[0];
+    //     console.log(this.invoiceObj);
+    //     return this.invoiceObj;
+    //   }
+    // );
   }
 
 
   saveInvioce(): Observable<any> {
     console.log('req', this.invoiceObj);
-    return this.http.put(this.hostURL, this.invoiceObj);
+    return this.http.put(this.hostURL + '/' + this.selectedId, this.invoiceObj);
   }
 
   setLogoImageInfo(logoFile: FormData) {
@@ -123,5 +126,15 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
       return this.http.post('http://localhost:3000/logo-image', this.invoiceObj.footerFile);
     }
   }
+
+  deleteInvoice(id): Observable<any> {
+    return this.http.delete(this.hostURL + '/' + id);
+  }
+
+  getInvoiceData(): Observable<any> {
+    return this.http.get('http://localhost:3000/invoice-data');
+  }
+
+  // /invoice-data
 
 }

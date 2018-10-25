@@ -1,0 +1,41 @@
+.router-link-active {
+  background: gray;
+  color: white;
+  padding: 2px;
+  border-radius: 2px;
+}
+
+.invoice-menu-nav {
+  background: #DCDCDC;
+  margin-top: 30px;
+  padding: 10px;
+}
+
+a {
+  float: right;
+  padding: 2px;
+  border-radius: 1px;
+  font-size: 15px;
+  list-style: none;
+  text-decoration: none;
+}
+
+.invoice-cancel-save-nav {
+  background: #DCDCDC;
+  margin: 2px;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.invoice-menus-nav {
+  text-align: right;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 15px;
+  list-style: none;
+  text-decoration: none;
+}
+
+.invoice-content {
+  border: 2px solid lightgray;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { InvoiceServiceService } from '../invoice-service.service';
 
 @Component({
@@ -7,10 +8,36 @@ import { InvoiceServiceService } from '../invoice-service.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
-  constructor(private service: InvoiceServiceService) { }
+  id = 1;
+  invoiceList = [
+    // {id: 1, name: 'Invoice - 1'},
+    // {id: 2, name: 'Invoice - 2'},
+    // {id: 3, name: 'Invoice - 3'},
+  ];
+  constructor(private service: InvoiceServiceService, private router: Router) { }
 
   ngOnInit() {
+    this.service.getInvoiceData().subscribe((res) => {
+      this.invoiceList = res;
+    });
+  }
+
+  viewInvoice() {
+    // this.router.navigate(['/heroes']);
+    this.router.navigate(['view']);
+  }
+
+  storeSelectedInvoiceId(id: number) {
+    this.service.selectedId = id;
+  }
+
+  deleteInvoice(invoice, i: number) {
+    this.service.deleteInvoice(invoice.invoiceid).subscribe((res) => {
+      alert(res.response);
+      if (res.response === 'Successfully Deleted Invoice') {
+        this.invoiceList.splice(i, 1);
+      }
+    });
   }
 
   saveInvoice() {

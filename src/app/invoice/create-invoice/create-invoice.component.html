@@ -4,7 +4,7 @@
         <div class="row">
           <div class="col-md-12">
             <!-- <label (click)="editInvoice()">Edit :: </label>   -->
-            <strong> {{ generalInfo.invoiceLayout }}</strong>
+            <!-- <strong> {{ generalInfo.invoiceLayout }}</strong> -->
           </div>
         </div>
 
@@ -13,13 +13,13 @@
               Invoice Layout *
             </div>
             <div class="col-md-6">
-              <input type="checkbox"  id="" [checked]="generalInfo.isActiveInvoiceLayout" [(ngModel)]="generalInfo.isActiveInvoiceLayout"> Active invoice layout
+              <input type="checkbox" [(ngModel)]="generalInfo.isActiveInvoiceLayout"> Active invoice layout
             </div>
           </div>
 
           <div class="row">
               <div class="col-md-12">
-                <input type="text" id="" [(ngModel)]=generalInfo.invoiceLayout>
+                <input type="text" class="invoiceLayout" [(ngModel)]=generalInfo.invoiceLayout>
               </div>
           </div>
           <div class="row">
@@ -27,7 +27,6 @@
                   <input
                   type="checkbox"
                   name="invoiceActive"
-                  [checked]="generalInfo.isDefaultInvoiceLayout"
                   [(ngModel)]="generalInfo.isDefaultInvoiceLayout"> Default invoice layout
               </div>
           </div>

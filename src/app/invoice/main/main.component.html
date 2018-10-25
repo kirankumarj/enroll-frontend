@@ -1,53 +1,8 @@
-<div class="container" style="font-family: 'Times New Roman', Times, serif;">
+<div class="container">
   <div class="row">
-    <div class="col-md-2 invoice-menu-nav">
-        <div class="col-md-12 invoice-menus-nav" [routerLink]="['general']" routerLinkActive="router-link-active">
-            General
-        </div>
-
-        <div class="col-md-12 invoice-menus-nav" >
-          Invoice Columns
-        </div>
-        <div class="col-md-12 invoice-menus-nav"  >
-          Invoice Grouping
-      </div>
-
-      <div class="col-md-12 invoice-menus-nav" >
-        Combine Charges
-      </div>
-      <div class="col-md-12 invoice-menus-nav"  >
-          Others
+    <div class="col-md-12 invoice-list" *ngFor="let invoice of invoiceList; let i = index">
+      <span [routerLink]="['view', invoice.invoiceid ]" (click)="storeSelectedInvoiceId(invoice.invoiceid)"> {{ invoice.invoicelayout}} </span>
+      <span style="float: right;" (click)="deleteInvoice(invoice, i)">Delete</span>
     </div>
-
-    <div class="col-md-12 invoice-menus-nav" >
-      Logo setting
-    </div>
-    <div class="col-md-12 invoice-menus-nav">
-      Footer Setting
   </div>
-
-  <div class="col-md-12 invoice-menus-nav"  >
-    Adobe-Acrobat(PDF)setting
-</div>
-
-<!-- <div class="col-md-12" >
-    <a [routerLink]="['create-invoice']" routerLinkActive="router-link-active" >Report Create</a>
-</div> -->
-
-
-    </div>
-    <div class="col-md-10 invoice-content">
-        <div class="row invoice-cancel-save-nav" >
-            <div class="col-md-1" >
-                Cancel
-            </div>
-            <div class="col-md-1" (click)="saveInvoice()">
-                Save
-            </div>
-        </div>
-        <div class="col-md-12" >
-            <router-outlet></router-outlet>
-        </div>
-    </div>
-
 </div>

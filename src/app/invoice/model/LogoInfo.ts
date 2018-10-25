@@ -3,4 +3,5 @@ export class LogoInfo {
   path: string;
   supressCompanyLogo: boolean;
   removeLogo: boolean;
+  isLogoChanged: boolean;
 }

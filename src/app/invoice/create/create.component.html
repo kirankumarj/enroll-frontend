@@ -1,3 +1,53 @@
-<p>
-  create works!
-</p>
+<div class="container" style="font-family: 'Times New Roman', Times, serif;">
+  <div class="row">
+    <div class="col-md-2 invoice-menu-nav">
+        <div class="col-md-12 invoice-menus-nav" [routerLink]="['general']" routerLinkActive="router-link-active">
+            General
+        </div>
+
+        <div class="col-md-12 invoice-menus-nav" >
+          Invoice Columns
+        </div>
+        <div class="col-md-12 invoice-menus-nav"  >
+          Invoice Grouping
+      </div>
+
+      <div class="col-md-12 invoice-menus-nav" >
+        Combine Charges
+      </div>
+      <div class="col-md-12 invoice-menus-nav"  >
+          Others
+    </div>
+
+    <div class="col-md-12 invoice-menus-nav" >
+      Logo setting
+    </div>
+    <div class="col-md-12 invoice-menus-nav">
+      Footer Setting
+  </div>
+
+  <div class="col-md-12 invoice-menus-nav"  >
+    Adobe-Acrobat(PDF)setting
+</div>
+
+<!-- <div class="col-md-12" >
+    <a [routerLink]="['create-invoice']" routerLinkActive="router-link-active" >Report Create</a>
+</div> -->
+
+
+    </div>
+    <div class="col-md-10 invoice-content">
+        <div class="row invoice-cancel-save-nav" >
+            <div class="col-md-1" >
+                Cancel
+            </div>
+            <div class="col-md-1" (click)="saveInvoice()">
+                Save
+            </div>
+        </div>
+        <div class="col-md-12" >
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+</div>
