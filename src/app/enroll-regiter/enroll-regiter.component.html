@@ -1,0 +1,174 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 border-div">
+        <h3>Preferences</h3>
+               <div class="row div-rom">
+                   <div class="col-md-3 div-col">
+                     <div class="row">
+                       <div class=col-md-12 *ngFor="let preference of preferenceOriginalList; let i = index" (click)="selectedPreference(i)" [class.active]="i == addSelectedRow">
+                           {{ preference }}
+                       </div>
+                     </div>
+                   </div>
+
+                   <div class="col-md-1">
+                       <div class="row">
+                           <div class="col-md-12" style="height: 20px;">
+
+                            </div>
+                           <div class="col-md-12" (click)="addField()">
+                              <!-- <button class="btn-primary" style="width: 100px;" >ADD</button> -->
+                              <div class=arrow-right></div>
+                           </div><div class="col-md-12">
+
+                            </div>
+                           <div class="col-md-12" (click)="removeField()">
+                               <!-- <button class="btn-primary" style="width: 100px;" >REMOVE</button> -->
+                               <div class="arrow-left"></div>
+                           </div>
+                         </div>
+                   </div>
+
+                   <div class="col-md-3 div-col">
+                       <div class="row">
+                           <div class=col-md-12 *ngFor="let sPreference of selectedPreferenceList; let i = index" (click)="selectedGroupListAction(i)" [class.deactive]="i == removeSelectedRow">
+                               {{ sPreference }}
+                           </div>
+                         </div>
+                   </div>
+
+                   <div class="col-md-1">
+                       <div class="row">
+                           <div class="col-md-12" style="height: 50px;">
+
+                            </div>
+                           <div class="col-md-12" (click)="moveUp()">
+                              <!-- <button class="btn-primary" style="width: 100px;" >ADD</button> -->
+                              <div class=arrow-up></div>
+                           </div><div class="col-md-12">
+
+                            </div>
+                           <div class="col-md-12" (click)="moveDown()">
+                               <!-- <button class="btn-primary" style="width: 100px;" >REMOVE</button> -->
+                               <div class="arrow-down"></div>
+                           </div>
+                         </div>
+                   </div>
+                 </div>
+      </div>
+
+
+      <div class="col-md-12 border-div">
+         <h3>Group Fields</h3>
+         <div class="row div-rom">
+             <div class="col-md-3 div-col">
+               <div class="row">
+                 <div class=col-md-12 *ngFor="let groupVal of originalGroupList; let i = index" (click)="selectedGroupListAc(i)" [class.deactive]="checkIndexMatched(i)">
+                     {{ groupVal }}
+                 </div>
+               </div>
+             </div>
+
+             <div class="col-md-1">
+                 <div class="row">
+                     <div class="col-md-12" style="height: 20px;">
+
+                      </div>
+                     <div class="col-md-12" (click)="addGroupField()">
+                        <!-- <button class="btn-primary" style="width: 100px;" >ADD</button> -->
+                        <div class=arrow-right></div>
+                     </div><div class="col-md-12">
+
+                      </div>
+                     <div class="col-md-12" (click)="removeGroupField()">
+                         <!-- <button class="btn-primary" style="width: 100px;" >REMOVE</button> -->
+                         <div class="arrow-left"></div>
+                     </div>
+                   </div>
+               </div>
+
+             <div class="col-md-3 div-col">
+                 <div class="row">
+                     <div class=col-md-12 *ngFor="let selectedGroupVal of selectedGroupList; let i = index" (click)="deselectedGroupListAc(i)" [class.deactive]="i == removeGroupSelectedRow">
+                         {{ selectedGroupVal }}
+                     </div>
+                   </div>
+               </div>
+
+               <div class="col-md-1">
+                  <div class="row">
+                      <div class="col-md-12" style="height: 50px;">
+
+                       </div>
+                      <div class="col-md-12" (click)="moveGroupUp()">
+                         <!-- <button class="btn-primary" style="width: 100px;" >ADD</button> -->
+                         <div class=arrow-up></div>
+                      </div><div class="col-md-12">
+
+                       </div>
+                      <div class="col-md-12" (click)="moveGroupDown()">
+                          <!-- <button class="btn-primary" style="width: 100px;" >REMOVE</button> -->
+                          <div class="arrow-down"></div>
+                      </div>
+                    </div>
+              </div>
+           </div>
+       </div>
+
+
+       <div class="col-md-12 border-div">
+           <div class="row">
+              <div class="col-md-2">
+                <label>Form :: </label>
+              </div>
+              <div class="col-md-3">
+                <input type="text" name="" id="">
+              </div>
+              <div class="col-md-2">
+                <label>TO :: </label>
+              </div>
+              <div class="col-md-3">
+                  <input type="text" name="" id="">
+              </div>
+           </div>
+         </div>
+
+         <div class="col-md-12 border-div">
+            <div class="row">
+               <div class="col-md-2">
+                 <label>Header :: </label>
+               </div>
+               <div class="col-md-3">
+                 <input type="text" name="" id="">
+               </div>
+               <div class="col-md-2">
+                 <label>Footer :: </label>
+               </div>
+               <div class="col-md-3">
+                   <input type="text" name="" id="">
+               </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 border-div">
+              <div class="row">
+                 <div class="col-md-6">
+                   <!-- <label>Header :: </label> <input type="text" name="" id=""> -->
+                 </div>
+                 <div class="col-md-6">
+                     <!-- <label>Footer :: </label> <input type="text" name="" id=""> -->
+                     <button class="btn-primary" (click)="saveEnroll()">SAVE</button>
+                 </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-12 border-div">
+                <div class="row">
+                   <div class="col-md-12">
+
+                </div>
+              </div>
+             </div>
+    </div>
+   </div>

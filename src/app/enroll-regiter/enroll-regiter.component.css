@@ -1,0 +1,64 @@
+.preferenceSection {
+  height: 150px !important;
+  margin: auto;
+}
+.active{
+  background-color:#123456 !important;
+  color: white;
+}
+
+.deactive {
+  background-color: lightgray !important;
+  color: black;
+}
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #123456;
+  margin: auto;
+}
+.arrow-left {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right:20px solid lightgray;
+  margin: auto;
+}
+
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+
+  border-bottom: 20px solid black;
+  margin: auto;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+
+  border-top: 20px solid gray;
+  margin: auto;
+}
+.border-div
+{
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+
+.div-rom {
+  height: 150px !important;
+  padding-left: 70px;
+}
+
+.div-col {
+  border: 2px solid gray;
+}
