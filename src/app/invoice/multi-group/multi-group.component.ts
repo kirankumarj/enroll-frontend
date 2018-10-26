@@ -90,7 +90,13 @@ export class MultiGroupComponent implements OnInit {
   }
 
   removeGroupField() {
-
+    if (this.removeGroupSelectedRow > -1) {
+      // this.invoiceColumns.push(this.selectedinvoiceColumns[this.removeSelectedRow]);
+      this.selectedInvoiceGroupingElet.splice(this.removeGroupSelectedRow, 1);
+      this.removeGroupSelectedRow = -1;
+  } else {
+    alert('Please select the remove options');
+  }
   }
 
   saveEnroll() {
