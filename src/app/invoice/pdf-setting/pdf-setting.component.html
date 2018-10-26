@@ -1,32 +1,168 @@
 <div class="container">
     <div class="row">
       <div class="col-md-12 border-div">
-         <h4 (click)="showHideDiv()">Logo Setting</h4>
-         <div class="row" *ngIf="showDiv">
+         <h4 (click)="showHideDiv()">Adobe Acrobat PDF Setting</h4>
+         <div *ngIf="showDiv">
 
-            <div class="col-md-4">
-              <input type="checkbox" [(ngModel)]="logoInfo.supressCompanyLogo">
-              <label>Supress the company logo</label>
-            </div>
 
-            <div class="col-md-8">
-              <div class="col-md-12">
-                  <label>Invoice logo:[ currently: {{ logoInfo.fileName }}]</label>
-              </div>
-              <div class="col-md-12">
-                  <input type="file" (change)="onFileChanged($event)">
-              </div>
-              <div class="col-md-12">
-                  <label>Select Browser to choose an image to upload JPEG, JPG, GIF, PNG</label>
+            <div class="row pdf-row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Page orientation
+                          </div>
+                        <div class="col-lg-12">
+                          <input type="radio" name="orientation" [(ngModel)]="adobePDFInfo.pageOrientation"> Portrait
+                        </div>
+                        <div class="col-lg-12">
+                            <input type="radio" name="orientation" [(ngModel)]="adobePDFInfo.pageOrientation"> Landscape
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-6">
+                    <input class="checkbox-inline" type="checkbox" [(ngModel)]="adobePDFInfo.expandPageWidthFitinvoice"> Expand the page width to fit the invoice
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <input type="checkbox" [(ngModel)]="logoInfo.removeLogo">
-                <label>Remove the logo </label>
-                <img [src]="logoInfo.path+logoInfo.fileName" alt="">
-              </div>
+            <div class="row pdf-row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Top margin
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <input type="number" style="width: 50px;" [(ngModel)]="adobePDFInfo.topMarginValue">
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="radio" name="topMargin" [(ngModel)]="adobePDFInfo.topMarginTo"> All pages
+                        </div>
+                        <div class="col-lg-5">
+                            <input type="radio" name="topMargin" [(ngModel)]="adobePDFInfo.topMarginTo"> First page only
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-lg-12">
+                          Specify a top margin (in Postscript points) if printing on letterhead paper.
+                          72 points = 1 inch = 25.4 mm
+                        </div>
+                      </div>
+                </div>
 
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Bottom margin
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <input type="number" style="width: 50px;" [(ngModel)]="adobePDFInfo.bottomMarginValue">
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="radio" name="bottomMargin" [(ngModel)]="adobePDFInfo.bottomMarginTo"> All pages
+                        </div>
+                        <div class="col-lg-5">
+                            <input type="radio" name="bottomMargin" [(ngModel)]="adobePDFInfo.bottomMarginTo"> First page only
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-lg-12">
+                          Specify a top margin (in Postscript points) if printing on letterhead paper.
+                          72 points = 1 inch = 25.4 mm
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+
+
+            <div class="row pdf-row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Font size
+                          </div>
+                        <div class="col-lg-12">
+                          <input type="text" [(ngModel)]="adobePDFInfo.fontSize">
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Font
+                          </div>
+                        <div class="col-lg-12">
+                            <select>
+                                <option value="1">Helvetica</option>
+                            </select>
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+
+            <div class="row pdf-row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Invoice title
+                          </div>
+                        <div class="col-lg-12">
+                          <input type="text" [(ngModel)]="adobePDFInfo.invoiceTitle">
+                        </div>
+                        <div class="col-lg-12">
+                            Specify an optional title e.g. Invoice, Credit Memo
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-6">
+                    <input class="checkbox-inline"  type="checkbox" [(ngModel)]="adobePDFInfo.isPrintHeaderDoubleWindow"> Print header for double window#9 envelope
+                </div>
+            </div>
+
+            <div class="row pdf-row">
+                <div class="col-lg-6">
+                    <input class="checkbox-inline" type="checkbox" [(ngModel)]="adobePDFInfo.isPrintHeaderE65Window"> Print header for E65 window envelope
+                </div>
+                <div class="col-lg-6">
+                    <input class="checkbox-inline" type="checkbox" [(ngModel)]="adobePDFInfo.isPrintHeaderDLWindow"> Print header for DL window envelope
+                </div>
+            </div>
+
+
+            <div class="row pdf-row">
+                <div class="col-lg-6">
+                    <input class="checkbox-inline" type="checkbox" [(ngModel)]="adobePDFInfo.isPrintHeaderC4Window"> Print header for C4 window envelope
+                </div>
+                <div class="col-lg-6">
+                    <input class="checkbox-inline" type="checkbox" [(ngModel)]="adobePDFInfo.isIncludeShipToAddressPDFInvoice"> Include ship-to address on PDF invoice
+                </div>
+            </div>
+
+            <div class="row pdf-row">
+                <div class="col-lg-6">
+                    <input class="checkbox-inline" type="checkbox" [(ngModel)]="adobePDFInfo.isRepeatMultiPageInvoices"> Repeat the To/from header block on multi-page invoices when using envelopes
+                </div>
+            </div>
+
+            <div class="row pdf-row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            "Remit To" Address
+                          </div>
+                        <div class="col-lg-12">
+                            <textarea class="form-control inputstl" rows="2" [(ngModel)]="adobePDFInfo.remitToAddress"></textarea>
+                        </div>
+                        <div class="col-lg-12">
+                            Specify an optinal remit to address for the PDF envelope
+                        </div>
+                      </div>
+                </div>
+            </div>
       </div>
     </div>
 </div>

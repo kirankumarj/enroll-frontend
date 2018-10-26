@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InvoiceServiceService } from '../invoice-service.service';
 import { General } from '../model/General';
-import { Resolve } from '@angular/router';
+import { Resolve, Router } from '@angular/router';
 
 
 @Component({
@@ -17,11 +17,16 @@ export class CreateInvoiceComponent implements OnInit {
     isDefaultInvoiceLayout: false
   };
 
-  constructor(private service: InvoiceServiceService) {
+  constructor(private service: InvoiceServiceService, private router: Router) {
   }
 
   ngOnInit() {
     this.generalInfo = this.service.getGeneralInfo();
+    if (!this.generalInfo.invoiceLayout) {
+      if (!this.service.isNewInvoice) {
+        this.router.navigate(['']);
+      }
+    }
   }
 
   editInvoice() {

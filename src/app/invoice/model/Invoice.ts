@@ -2,6 +2,7 @@ import { General } from './General';
 import { AdditionalInfo } from './AdditionalInfo';
 import { LogoInfo } from './LogoInfo';
 import { FooterInfo } from './FooterInfo';
+import { AdobePDFInfo } from './AdobePDFInfo';
 
 export class Invoice {
   general: General;
@@ -13,4 +14,5 @@ export class Invoice {
 
   logoFile: FormData;
   footerFile: FormData;
+  adobePDFInfo: AdobePDFInfo;
 }

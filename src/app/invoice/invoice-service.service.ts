@@ -8,6 +8,7 @@ import { Resolve } from '@angular/router';
 import { AdditionalInfo } from './model/AdditionalInfo';
 import { LogoInfo } from './model/LogoInfo';
 import { FooterInfo } from './model/FooterInfo';
+import { AdobePDFInfo } from './model/AdobePDFInfo';
 
 
 @Injectable({
@@ -19,6 +20,25 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
   isEditable: boolean;
   selectedId: number;
   isNewInvoice: boolean;
+
+  adobePDFInfo: AdobePDFInfo = {
+    pageOrientation: '',
+    expandPageWidthFitinvoice: false,
+    topMarginValue: 0,
+    topMarginTo: '',
+    bottomMarginValue: 0,
+    bottomMarginTo: '',
+    fontSize: 0,
+    font: '',
+    invoiceTitle: '',
+    isPrintHeaderDoubleWindow: false,
+    isPrintHeaderE65Window: false,
+    isPrintHeaderDLWindow: false,
+    isPrintHeaderC4Window: false,
+    isIncludeShipToAddressPDFInvoice: false,
+    isRepeatMultiPageInvoices: false,
+    remitToAddress:  '',
+  };
 
   generalInfo: General = {
     invoiceLayout: '',
@@ -79,7 +99,11 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
     this.invoiceObj.general = generalInfo;
   }
   getGeneralInfo(): General {
-    return this.invoiceObj.general;
+    if (!this.invoiceObj) {
+      return new General();
+    } else {
+      return this.invoiceObj.general;
+    }
   }
   getAdditionaInfo(): AdditionalInfo {
     console.log(this.invoiceObj.additionalInfo);
@@ -131,6 +155,7 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
     this.invoiceObj.additionalInfo = this.additionalInfo;
     this.invoiceObj.logoInfo = this.logoInfo;
     this.invoiceObj.footerInfo = this.footerInfo;
+    this.invoiceObj.adobePDFInfo = this.adobePDFInfo;
   }
 
   resolve() {
@@ -187,6 +212,10 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
 
   saveNewInvoice(): Observable<any> {
     return this.http.post(this.hostURL , this.invoiceObj);
+  }
+
+  getAdobePDFInfo(): AdobePDFInfo {
+    return this.invoiceObj.adobePDFInfo;
   }
 
 }
