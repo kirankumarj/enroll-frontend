@@ -18,6 +18,45 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
   invoiceObj: Invoice;
   isEditable: boolean;
   selectedId: number;
+  isNewInvoice: boolean;
+
+  generalInfo: General = {
+    invoiceLayout: '',
+    isActiveInvoiceLayout: false,
+    isDefaultInvoiceLayout: false
+  };
+  additionalInfo: AdditionalInfo = {
+    additionalText : '',
+    locationOfInvoiceText : '',
+    isincludeBalances : false,
+    isSupressTerms : false,
+    isSupressFormAddress : false,
+    isShowDueDateCalculatedFromTerms : false,
+    isDisplayNegativeNumbersRedColor : false,
+    isSupressCentsWhenPossible : false,
+    isUseISOCurrencyCodes : false,
+    isBreakdownTakes : false,
+    isSuppressProjectName : false,
+    formatHours : '',
+    isAddAttachmentLinks : false,
+    isIncludeAttachmentDownloadPDF : false,
+    isSuppressTotalPaymentToDate : false,
+  };
+  logoInfo: LogoInfo = {
+    fileName: 'none' ,
+    path: '',
+    supressCompanyLogo: false,
+    removeLogo: false,
+    isLogoChanged: false
+  };
+  footerInfo: FooterInfo = {
+    fileName: 'none' ,
+    path: '',
+    removeFooter: false,
+    isFooterChanged: false
+  };
+  columns = [];
+  grouping = [];
 
   private hostURL = 'http://localhost:3000/invoice';
 
@@ -83,6 +122,17 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
     );
   }
 
+  newInvoice() {
+    this.isNewInvoice = true;
+    this.invoiceObj = new Invoice();
+    this.invoiceObj.general = this.generalInfo;
+    this.invoiceObj.columns = this.columns;
+    this.invoiceObj.grouping = this.grouping;
+    this.invoiceObj.additionalInfo = this.additionalInfo;
+    this.invoiceObj.logoInfo = this.logoInfo;
+    this.invoiceObj.footerInfo = this.footerInfo;
+  }
+
   resolve() {
     // this.getInvoiceInfoFromServer().subscribe(
     //   (res) => {
@@ -135,6 +185,8 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
     return this.http.get('http://localhost:3000/invoice-data');
   }
 
-  // /invoice-data
+  saveNewInvoice(): Observable<any> {
+    return this.http.post(this.hostURL , this.invoiceObj);
+  }
 
 }

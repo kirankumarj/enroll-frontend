@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdditionalInfoComponent } from './additional-info/additional-info.component';
 import { LogoInfoComponent } from './logo-info/logo-info.component';
 import { FooterInfoComponent } from './footer-info/footer-info.component';
+import { PdfSettingComponent } from './pdf-setting/pdf-setting.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { FooterInfoComponent } from './footer-info/footer-info.component';
     MultiGroupComponent,
     AdditionalInfoComponent,
     LogoInfoComponent,
-    FooterInfoComponent
+    FooterInfoComponent,
+    PdfSettingComponent
   ],
   providers: [
     InvoiceServiceService

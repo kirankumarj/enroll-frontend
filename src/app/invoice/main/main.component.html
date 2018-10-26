@@ -1,4 +1,9 @@
 <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <button class="primay-btn" [routerLink]="['view', 'new' ]" >New Invoice</button>
+        </div>
+    </div>
   <div class="row">
     <div class="col-md-12 invoice-list" *ngFor="let invoice of invoiceList; let i = index">
       <span [routerLink]="['view', invoice.invoiceid ]" (click)="storeSelectedInvoiceId(invoice.invoiceid)"> {{ invoice.invoicelayout}} </span>
