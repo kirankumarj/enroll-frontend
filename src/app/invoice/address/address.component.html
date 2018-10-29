@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 border-div">
+         <h4 (click)="showHideDiv()">Address</h4>
+         <div class="row" *ngIf="showDiv">
+            <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    From Address
+                  </div>
+                  <div class="col-md-12">
+                    <textarea rows="3" [(ngModel)]="additionalInfo.fromAddress"></textarea>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    To Address
+                  </div>
+                  <div class="col-md-12">
+                      <textarea rows="3" [(ngModel)]="additionalInfo.toAddress"></textarea>
+                  </div>
+                </div>
+            </div>
+         </div>
+      </div>
+    </div>
+  </div>

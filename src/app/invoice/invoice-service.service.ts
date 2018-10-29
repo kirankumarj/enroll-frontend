@@ -61,6 +61,8 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
     isAddAttachmentLinks : false,
     isIncludeAttachmentDownloadPDF : false,
     isSuppressTotalPaymentToDate : false,
+    toAddress: '',
+    fromAddress: ''
   };
   logoInfo: LogoInfo = {
     fileName: 'none' ,

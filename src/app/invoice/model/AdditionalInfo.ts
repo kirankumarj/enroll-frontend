@@ -14,4 +14,6 @@ export class AdditionalInfo {
   isAddAttachmentLinks: boolean;
   isIncludeAttachmentDownloadPDF: boolean;
   isSuppressTotalPaymentToDate: boolean;
+  toAddress: string;
+  fromAddress: string;
 }

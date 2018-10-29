@@ -17,6 +17,7 @@ import { AdditionalInfoComponent } from './additional-info/additional-info.compo
 import { LogoInfoComponent } from './logo-info/logo-info.component';
 import { FooterInfoComponent } from './footer-info/footer-info.component';
 import { PdfSettingComponent } from './pdf-setting/pdf-setting.component';
+import { AddressComponent } from './address/address.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import { PdfSettingComponent } from './pdf-setting/pdf-setting.component';
     AdditionalInfoComponent,
     LogoInfoComponent,
     FooterInfoComponent,
-    PdfSettingComponent
+    PdfSettingComponent,
+    AddressComponent
   ],
   providers: [
     InvoiceServiceService

@@ -26,6 +26,8 @@ export class AdditionalInfoComponent implements OnInit {
     isAddAttachmentLinks : false,
     isIncludeAttachmentDownloadPDF : false,
     isSuppressTotalPaymentToDate : false,
+    toAddress: '',
+    fromAddress: ''
   };
 
   constructor(private service: InvoiceServiceService) { }
