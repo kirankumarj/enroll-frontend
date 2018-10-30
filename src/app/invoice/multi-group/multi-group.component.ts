@@ -11,7 +11,7 @@ export class MultiGroupComponent implements OnInit {
   groupSelectedRow = [];
   removeGroupSelectedRow;
 
-  showDiv = false;
+  showDiv = true;
 
   invoiceAvailableGroupingEle = ['Account Type', 'Billable Expenses', 'Booked Date', 'Budgeted Cost',
    'Cost Center', 'Cumulative hours', 'Cumulative total', 'Customer PO', 'Customer PO number', 'Date' ];
@@ -103,7 +103,7 @@ export class MultiGroupComponent implements OnInit {
   }
 
   showHideDiv() {
-    this.showDiv = !this.showDiv;
+    // this.showDiv = !this.showDiv;
   }
 
 

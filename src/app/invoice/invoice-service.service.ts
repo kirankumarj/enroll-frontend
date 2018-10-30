@@ -60,9 +60,7 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
     formatHours : '',
     isAddAttachmentLinks : false,
     isIncludeAttachmentDownloadPDF : false,
-    isSuppressTotalPaymentToDate : false,
-    toAddress: '',
-    fromAddress: ''
+    isSuppressTotalPaymentToDate : false
   };
   logoInfo: LogoInfo = {
     fileName: 'none' ,
@@ -115,7 +113,9 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
     this.invoiceObj.columns = columns;
   }
   getColumnsInfo(): string[] {
-    console.log('test', this.invoiceObj);
+    if (this.invoiceObj.columns === null) {
+        this.invoiceObj.columns  = [];
+    }
     return this.invoiceObj.columns;
   }
 
@@ -123,6 +123,9 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
     this.invoiceObj.grouping = groups;
   }
   getGroupingInfo() {
+    if (this.invoiceObj.grouping === null) {
+      this.invoiceObj.grouping  = [];
+  }
     return this.invoiceObj.grouping;
   }
 
@@ -143,6 +146,7 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
     this.getInvoiceInfoFromServer(id).subscribe(
       (res) => {
         this.invoiceObj = res[0];
+        this.selectedId = id;
         console.log(this.invoiceObj);
       }
     );
@@ -158,6 +162,8 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
     this.invoiceObj.logoInfo = this.logoInfo;
     this.invoiceObj.footerInfo = this.footerInfo;
     this.invoiceObj.adobePDFInfo = this.adobePDFInfo;
+    this.invoiceObj.toAddress = '';
+    this.invoiceObj.fromAddress = '';
   }
 
   resolve() {
@@ -218,6 +224,19 @@ export class InvoiceServiceService implements OnInit, Resolve<any> {
 
   getAdobePDFInfo(): AdobePDFInfo {
     return this.invoiceObj.adobePDFInfo;
+  }
+
+  getToAddress(): string {
+    return this.invoiceObj.toAddress;
+  }
+  getFromAddress(): string {
+    return this.invoiceObj.fromAddress;
+  }
+  setToAddress(toAddress) {
+    this.invoiceObj.toAddress = toAddress;
+  }
+  setFromAddress(fromAddress) {
+    this.invoiceObj.fromAddress = fromAddress;
   }
 
 }

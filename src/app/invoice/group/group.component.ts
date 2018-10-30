@@ -15,7 +15,8 @@ export class GroupComponent implements OnInit {
   // index;
   addSelectedRow;
   removeSelectedRow;
-  showDiv = false;
+
+  showDiv = true;
   general = {invoiceLayout: 'Test', isActiveInvoiceLayout: true, isDefaultInvoiceLayout: false };
   myObj;
 
@@ -120,7 +121,7 @@ export class GroupComponent implements OnInit {
   }
 
   showHideDiv() {
-    this.showDiv = !this.showDiv;
+    // this.showDiv = !this.showDiv;
   }
 
 }

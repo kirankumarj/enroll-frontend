@@ -9,7 +9,7 @@
                     From Address
                   </div>
                   <div class="col-md-12">
-                    <textarea rows="3" [(ngModel)]="additionalInfo.fromAddress"></textarea>
+                    <textarea rows="3" [(ngModel)]="fromAddress" (keyup)="saveFromAddress()"></textarea>
                   </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                     To Address
                   </div>
                   <div class="col-md-12">
-                      <textarea rows="3" [(ngModel)]="additionalInfo.toAddress"></textarea>
+                      <textarea rows="3" [(ngModel)]="toAddress" (keyup)="saveToAddress()"></textarea>
                   </div>
                 </div>
             </div>

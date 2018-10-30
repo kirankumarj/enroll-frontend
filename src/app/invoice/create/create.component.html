@@ -5,28 +5,28 @@
             General
         </div>
 
-        <div class="col-md-12 invoice-menus-nav" >
+        <div class="col-md-12 invoice-menus-nav" [routerLink]="['group']" routerLinkActive="router-link-active" >
           Invoice Columns
         </div>
-        <div class="col-md-12 invoice-menus-nav"  >
+        <div class="col-md-12 invoice-menus-nav"  [routerLink]="['multi-group']" routerLinkActive="router-link-active">
           Invoice Grouping
       </div>
 
-      <div class="col-md-12 invoice-menus-nav" >
+      <!-- <div class="col-md-12 invoice-menus-nav" [routerLink]="['general']" routerLinkActive="router-link-active">
         Combine Charges
-      </div>
-      <div class="col-md-12 invoice-menus-nav"  >
+      </div> -->
+      <div class="col-md-12 invoice-menus-nav"  [routerLink]="['additional-info']" routerLinkActive="router-link-active">
           Others
     </div>
 
-    <div class="col-md-12 invoice-menus-nav" >
+    <div class="col-md-12 invoice-menus-nav" [routerLink]="['logo-setting']" routerLinkActive="router-link-active">
       Logo setting
     </div>
-    <div class="col-md-12 invoice-menus-nav">
+    <div class="col-md-12 invoice-menus-nav" [routerLink]="['footer-setting']" routerLinkActive="router-link-active">
       Footer Setting
   </div>
 
-  <div class="col-md-12 invoice-menus-nav"  >
+  <div class="col-md-12 invoice-menus-nav"  [routerLink]="['pdf-setting']" routerLinkActive="router-link-active">
     Adobe-Acrobat(PDF)setting
   </div>
 

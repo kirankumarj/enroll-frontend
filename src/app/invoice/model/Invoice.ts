@@ -15,4 +15,6 @@ export class Invoice {
   logoFile: FormData;
   footerFile: FormData;
   adobePDFInfo: AdobePDFInfo;
+  toAddress: string;
+  fromAddress: string;
 }

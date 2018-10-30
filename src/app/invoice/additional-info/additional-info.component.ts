@@ -8,7 +8,7 @@ import { InvoiceServiceService } from '../invoice-service.service';
   styleUrls: ['./additional-info.component.css']
 })
 export class AdditionalInfoComponent implements OnInit {
-  showDiv = false;
+  showDiv = true;
 
   additionalInfo: AdditionalInfo = {
     additionalText : '',
@@ -25,9 +25,7 @@ export class AdditionalInfoComponent implements OnInit {
     formatHours : '',
     isAddAttachmentLinks : false,
     isIncludeAttachmentDownloadPDF : false,
-    isSuppressTotalPaymentToDate : false,
-    toAddress: '',
-    fromAddress: ''
+    isSuppressTotalPaymentToDate : false
   };
 
   constructor(private service: InvoiceServiceService) { }
@@ -36,7 +34,7 @@ export class AdditionalInfoComponent implements OnInit {
       this.additionalInfo = this.service.getAdditionaInfo();
   }
   showHideDiv() {
-    this.showDiv = !this.showDiv;
+    // this.showDiv = !this.showDiv;
   }
 
 }

@@ -8,7 +8,7 @@ import { InvoiceServiceService } from '../invoice-service.service';
   styleUrls: ['./footer-info.component.css']
 })
 export class FooterInfoComponent implements OnInit {
-  showDiv = false;
+  showDiv = true;
   selectedFile: File;
   fd = new FormData();
 
@@ -26,7 +26,7 @@ export class FooterInfoComponent implements OnInit {
   }
 
   showHideDiv() {
-    this.showDiv = !this.showDiv;
+    // this.showDiv = !this.showDiv;
   }
 
   onFileChanged(event) {

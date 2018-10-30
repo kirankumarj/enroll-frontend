@@ -8,7 +8,7 @@ import { LogoInfo } from '../model/LogoInfo';
   styleUrls: ['./logo-info.component.css']
 })
 export class LogoInfoComponent implements OnInit {
-  showDiv = false;
+  showDiv = true;
   selectedFile: File;
   fd = new FormData();
 
@@ -28,7 +28,7 @@ export class LogoInfoComponent implements OnInit {
   }
 
   showHideDiv() {
-    this.showDiv = !this.showDiv;
+    // this.showDiv = !this.showDiv;
   }
 
   onFileChanged(event) {

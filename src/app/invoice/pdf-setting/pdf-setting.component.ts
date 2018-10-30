@@ -9,7 +9,7 @@ import { AdobePDFInfo } from '../model/AdobePDFInfo';
   styleUrls: ['./pdf-setting.component.css']
 })
 export class PdfSettingComponent implements OnInit {
-  showDiv = false;
+  showDiv = true;
   selectedFile: File;
   fd = new FormData();
 
@@ -39,7 +39,7 @@ export class PdfSettingComponent implements OnInit {
   }
 
   showHideDiv() {
-    this.showDiv = !this.showDiv;
+    // this.showDiv = !this.showDiv;
   }
 
   // onFileChanged(event) {
